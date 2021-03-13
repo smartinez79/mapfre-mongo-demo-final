@@ -66,8 +66,8 @@ public class PersonService {
         return personMapper.toDto(savedModel);
     }
 
-    public PersonDto updatePerson(PersonDto personDto) {
-        Optional<Person> model = personRepository.findById(personDto.getId());
+    public PersonDto updatePerson(String id, PersonDto personDto) {
+        Optional<Person> model = personRepository.findById(id);
         return model
                 .map(p -> {
                     p.setFirstName(personDto.getFirstName());
